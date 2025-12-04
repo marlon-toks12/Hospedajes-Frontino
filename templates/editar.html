@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Editar Hospedaje</h2>
+
+<div class="card">
+
+<form method="POST" enctype="multipart/form-data">
+
+    <label>Nombre del hotel:</label>
+    <input type="text" name="nombre" value="{{ h.nombre_hotel }}" required>
+
+    <label>Ubicación:</label>
+    <input type="text" name="ubicacion" value="{{ h.ubicacion }}" required>
+
+    <label>Contacto:</label>
+    <input type="text" name="contacto" value="{{ h.contacto }}" required>
+
+    <label>Precio/noche:</label>
+    <input type="text" name="precio" value="{{ h.precio }}" required>
+
+    <label>Tipo:</label>
+    <select name="tipo" required>
+        <option value="Residencia" {% if h.tipo == "Residencia" %}selected{% endif %}>Residencia</option>
+        <option value="Hotel" {% if h.tipo == "Hotel" %}selected{% endif %}>Hotel</option>
+        <option value="Glamping" {% if h.tipo == "Glamping" %}selected{% endif %}>Glamping</option>
+    </select>
+
+    <label>Imagen actual:</label><br>
+    {% if h.imagen %}
+        <img src="/static/uploads/{{ h.imagen }}" width="200" style="border-radius:10px;border:2px solid #003b5c;">
+    {% endif %}
+    <br><br>
+
+    <label>Subir nueva imagen (opcional):</label>
+    <input type="file" name="imagen" accept="image/*">
+
+    <label>URL del mapa (embed de Google Maps):</label>
+    <textarea name="mapa" rows="3">{{ h.mapa }}</textarea>
+
+    <button class="btn btn-success">Actualizar</button>
+    <a href="/panel" class="btn btn-danger">Cancelar</a>
+
+</form>
+
+</div>
+
+{% endblock %}

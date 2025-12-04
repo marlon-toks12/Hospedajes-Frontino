@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Hospedajes disponibles</h2>
+
+{% for h in hospedajes %}
+<div class="card">
+    {% if h.imagen %}
+    <style>
+.hotel-img {
+    width: 250px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #003b5c;
+}
+</style>
+
+        <img src="/static/uploads/{{ h.imagen }}" class="hotel-img">
+
+    {% endif %}
+
+    <h3>{{ h.nombre_hotel }}</h3>
+    <p><strong>Ubicación:</strong> {{ h.ubicacion }}</p>
+    <p><strong>Contacto:</strong> {{ h.contacto }}</p>
+    <p><strong>Precio/noche:</strong> {{ h.precio }}</p>
+    <p><strong>Tipo:</strong> {{ h.tipo }}</p>
+
+    {% if h.mapa %}
+        <iframe 
+    src="{{ h.mapa }}" 
+    width="250" 
+    height="180" 
+    style="border:0; border-radius:10px;" 
+    allowfullscreen="" 
+    loading="lazy">
+</iframe>
+
+    {% endif %}
+</div>
+{% endfor %}
+
+<br>
+<a href="/login" class="btn btn-primary">Iniciar como administrador</a>
+
+{% endblock %}

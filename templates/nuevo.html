@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Registrar Hospedaje</h2>
+
+<div class="card">
+
+<form method="POST" enctype="multipart/form-data">
+
+    <label>Nombre del hotel:</label>
+    <input type="text" name="nombre" required>
+
+    <label>Ubicación (ciudad / barrio):</label>
+    <input type="text" name="ubicacion" required>
+
+    <label>Contacto:</label>
+    <input type="text" name="contacto" required>
+
+    <label>Precio (texto):</label>
+    <input type="text" name="precio" placeholder="Ej: Desde $80.000 hasta $150.000" required>
+
+    <label>Tipo:</label>
+    <select name="tipo" required>
+        <option value="Residencia">Residencia</option>
+        <option value="Hotel">Hotel</option>
+        <option value="Glamping">Glamping</option>
+    </select>
+
+    <label>Imagen:</label>
+    <input type="file" name="imagen" accept="image/*">
+
+    <label>URL del mapa (Google Maps - solo el link dentro de src="..."):</label>
+<textarea name="mapa" id="mapa" rows="3" placeholder="Pega aquí el iframe o el link"></textarea>
+
+<script>
+document.getElementById("mapa").addEventListener("input", function() {
+    let texto = this.value;
+
+    // Si pega un iframe completo ➝ extraemos el src
+    if (texto.includes("<iframe")) {
+        const match = texto.match(/src="([^"]+)"/);
+        if (match) {
+            this.value = match[1];  // Solo la URL embed
+        }
+    }
+});
+</script>
+
+
+    <button class="btn btn-success">Guardar</button>
+    <a href="/panel" class="btn btn-danger">Cancelar</a>
+
+</form>
+
+</div>
+
+{% endblock %}

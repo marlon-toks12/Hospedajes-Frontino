@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Iniciar sesión</h2>
+
+<div class="card">
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>Usuario:</label>
+        <input type="text" name="usuario" required>
+
+        <label>Clave:</label>
+        <input type="password" name="clave" required>
+
+        <button class="btn btn-primary">Ingresar</button>
+    </form>
+</div>
+
+{% endblock %}

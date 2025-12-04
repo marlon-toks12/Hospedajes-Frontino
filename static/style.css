@@ -1,0 +1,164 @@
+/* ------------------------------
+   ESTILOS GENERALES RESPONSIVOS
+------------------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    text-align: center; /* CENTRA TODO EL CONTENIDO */
+}
+
+/* CONTENEDOR CENTRAL */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ------------------------------
+   TABLAS RESPONSIVAS
+------------------------------- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto; /* CENTRAR TABLA */
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center; /* CENTRAR TEXTO DE LAS CELDAS */
+}
+
+tr:hover {
+    background: #f2f2f2;
+}
+
+/* IMÁGENES EN TABLAS */
+table img {
+    display: block;
+    margin: 0 auto;
+    width: 120px; /* TAMAÑO REDUCIDO */
+    height: auto;
+    border-radius: 6px;
+}
+
+/* ------------------------------
+   BOTONES
+------------------------------- */
+.btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    margin: 4px; /* SEPARACIÓN ENTRE BOTONES */
+    display: inline-block;
+}
+
+.btn-warning {
+    background: #f0ad4e;
+}
+
+.btn-danger {
+    background: #d9534f;
+}
+
+.btn-primary {
+    background: #0275d8;
+}
+
+.btn-success {
+    background: #5cb85c;
+}
+
+.btn:hover {
+    filter: brightness(0.9);
+}
+
+/* ------------------------------
+   FORMULARIOS
+------------------------------- */
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+}
+
+form label {
+    font-weight: bold;
+}
+
+/* ------------------------------
+   RESPONSIVE — MÓVILES
+------------------------------- */
+@media (max-width: 768px) {
+
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table img {
+        width: 80px; /* MÁS PEQUEÑO EN MÓVIL */
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* ------------------------------
+   TARJETAS / HOSPEDAJES
+------------------------------- */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center; /* CENTRA CONTENIDO DE LA CARD */
+}
+
+.card img {
+    display: block;
+    margin: 0 auto;
+    width: 120px; /* IMÁGENES MÁS PEQUEÑAS */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* GRID RESPONSIVO */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center; /* CENTRA TODAS LAS TARJETAS */
+}
+.hotel-img {
+    width: 140px;        /* Imagen pequeña */
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;      /* Centra la imagen */
+    border-radius: 10px;
+    border: 2px solid #003b5c;
+}
